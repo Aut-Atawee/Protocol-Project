@@ -19,7 +19,6 @@ data = {
 data = bytes(json.dumps(data),encoding="utf-8")
 s.send(data)
 
-
 while True :
 
     receive = s.recv(1024)
@@ -39,12 +38,3 @@ while True :
         print("End connection")
         s.close()
         break
-
-    # guess = int(input("Enter your guess (0-100) : "))
-    
-    # s.send(guess.to_bytes(2, byteorder="big"))
-    
-    # data = s.recv(1024)
-    # print(repr(str(data,"utf-8")))
-    # if ((str(data,"utf-8")) == "Congratulations! Your guess is correct!") :
-    #     break

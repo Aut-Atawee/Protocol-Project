@@ -17,8 +17,6 @@ while True :
         continue
 
     target_number = math.floor(random.random() * 100)
-    # print(target_number)
-
     
     receive = clientsocket.recv(1024)
     receive = json.loads(receive.decode("utf-8"))
@@ -32,14 +30,12 @@ while True :
     sendto_client = bytes(json.dumps(sendto_client),encoding="utf-8")
     clientsocket.send(sendto_client)
 
-
     while True :
 
         receive_from_client = clientsocket.recv(1024)
         data = json.loads(receive_from_client.decode("utf-8"))
-
     
-        if (0 >= data["guess"] >= 100) :
+        if data["guess"] < 0 or 100 < data["guess"] :
             sendto_client = {
                 "protocol":"KFN",
                 "status":"350 Again",
@@ -80,9 +76,7 @@ while True :
             }
             sendto_client = bytes(json.dumps(sendto_client),encoding="utf-8")
             clientsocket.send(sendto_client)
-
-    
-    print("End connection with " + str(data))
-    # print()
+    print("End connection")
+    print()
     clientsocket.close()
 clientsocket.close()
