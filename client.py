@@ -25,11 +25,11 @@ while True :
     receive = json.loads(receive.decode("utf-8"))
     print(receive["message"])
 
-    if receive["status"] == "350 Again" :
+    if receive["status"] == "787 Action" :
         guess = int(input("Enter your guess (0-100) : "))
         sendto_server = {
             "protocol":"KFN",
-            "status":"747 Guess",
+            "status":"350 Guess",
             "guess":guess
         }
         sendto_server = bytes(json.dumps(sendto_server),encoding="utf-8")

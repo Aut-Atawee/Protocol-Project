@@ -23,7 +23,7 @@ while True :
     
     sendto_client = {
         "protocol" : "KFN" ,
-        "status" : "350 Again" ,
+        "status" : "787 Action" ,
         "message" : "Welcome " + receive["name"] + " to Koisuru Fortune Number!"
     }
 
@@ -38,7 +38,7 @@ while True :
         if data["guess"] < 0 or 100 < data["guess"] :
             sendto_client = {
                 "protocol":"KFN",
-                "status":"350 Again",
+                "status":"787 Action",
                 "message":"Your guess is out of range, Please try again!"
             }
             sendto_client = bytes(json.dumps(sendto_client),encoding="utf-8")
@@ -55,7 +55,7 @@ while True :
         elif data["guess"] > target_number :
             sendto_client = {
                 "protocol":"KFN",
-                "status":"350 Again",
+                "status":"787 Action",
                 "message":"Your guess is too high, Please try again!"
             }
             sendto_client = bytes(json.dumps(sendto_client),encoding="utf-8")
@@ -63,7 +63,7 @@ while True :
         elif data["guess"] < target_number :
             sendto_client = {
                 "protocol":"KFN",
-                "status":"350 Again",
+                "status":"787 Action",
                 "message":"Your guess is too low, Please try again!"
             }
             sendto_client = bytes(json.dumps(sendto_client),encoding="utf-8")
@@ -71,7 +71,7 @@ while True :
         else :
             sendto_client = {
                 "protocol":"KFN",
-                "status":"350 Again",
+                "status":"787 Action",
                 "message":"Invalid input! Please input numeric 0-100"
             }
             sendto_client = bytes(json.dumps(sendto_client),encoding="utf-8")
